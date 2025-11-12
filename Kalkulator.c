@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
+#include <stdlib.h> // untuk system()
 
-// Bersihkan layar (Windows & Linux/Mac)
+// Fungsi untuk membersihkan layar (Windows & Linux)
 void clearScreen() {
 #ifdef _WIN32
     system("cls");
@@ -12,8 +14,11 @@ void clearScreen() {
 
 int main() {
     int menu;
+    char ulang;
+
     do {
-        printf("\n=== TOOLKIT LENGKAP ASISTEN LABORATORIUM ELEKTRO ===\n");
+        clearScreen();
+        printf("=== TOOLKIT LENGKAP ASISTEN LABORATORIUM ELEKTRO ===\n");
         printf("1. Kalkulator Hukum Ohm (V = I * R)\n");
         printf("2. Kalkulator Daya Listrik (P = V * I)\n");
         printf("3. Kalkulator Resistor Seri\n");
@@ -30,7 +35,8 @@ int main() {
             // ===== Hukum Ohm =====
             float V, I, R;
             int pilihan;
-            printf("\n--- Kalkulator Hukum Ohm ---\n");
+            clearScreen();
+            printf("--- Kalkulator Hukum Ohm ---\n");
             printf("Hitung:\n1. Tegangan (V)\n2. Arus (I)\n3. Hambatan (R)\nPilih: ");
             scanf("%d", &pilihan);
 
@@ -66,7 +72,8 @@ int main() {
         else if (menu == 2) {
             // ===== Daya Listrik =====
             float V, I, P;
-            printf("\n--- Kalkulator Daya Listrik ---\n");
+            clearScreen();
+            printf("--- Kalkulator Daya Listrik ---\n");
             printf("Masukkan Tegangan (V): ");
             scanf("%f", &V);
             printf("Masukkan Arus (I): ");
@@ -79,7 +86,8 @@ int main() {
             // ===== Resistor Seri =====
             int n;
             float total = 0.0, R;
-            printf("\n--- Kalkulator Resistor Seri ---\n");
+            clearScreen();
+            printf("--- Kalkulator Resistor Seri ---\n");
             printf("Masukkan jumlah resistor: ");
             scanf("%d", &n);
             for (int i = 1; i <= n; i++) {
@@ -94,7 +102,8 @@ int main() {
             // ===== Resistor Paralel =====
             int n;
             float total = 0.0, R;
-            printf("\n--- Kalkulator Resistor Paralel ---\n");
+            clearScreen();
+            printf("--- Kalkulator Resistor Paralel ---\n");
             printf("Masukkan jumlah resistor: ");
             scanf("%d", &n);
             for (int i = 1; i <= n; i++) {
@@ -116,11 +125,11 @@ int main() {
         else if (menu == 5) {
             // ===== Konversi Desimal =====
             int desimal;
-            printf("\n--- Konversi dari Desimal ---\n");
+            clearScreen();
+            printf("--- Konversi dari Desimal ---\n");
             printf("Masukkan bilangan desimal: ");
             scanf("%d", &desimal);
 
-            // Konversi manual ke biner
             int biner[32], i = 0, n = desimal;
             while (n > 0) {
                 biner[i] = n % 2;
@@ -138,7 +147,8 @@ int main() {
             // ===== Biner ke Desimal =====
             long long biner;
             int desimal = 0, i = 0, sisa;
-            printf("\n--- Konversi Biner ke Desimal ---\n");
+            clearScreen();
+            printf("--- Konversi Biner ke Desimal ---\n");
             printf("Masukkan bilangan biner: ");
             scanf("%lld", &biner);
 
@@ -154,7 +164,8 @@ int main() {
         else if (menu == 7) {
             // ===== Oktal ke Desimal =====
             int oktal, desimal = 0, i = 0, sisa;
-            printf("\n--- Konversi Oktal ke Desimal ---\n");
+            clearScreen();
+            printf("--- Konversi Oktal ke Desimal ---\n");
             printf("Masukkan bilangan oktal: ");
             scanf("%d", &oktal);
 
@@ -171,7 +182,8 @@ int main() {
             // ===== Heksadesimal ke Desimal =====
             char heksa[20];
             int desimal = 0;
-            printf("\n--- Konversi Heksadesimal ke Desimal ---\n");
+            clearScreen();
+            printf("--- Konversi Heksadesimal ke Desimal ---\n");
             printf("Masukkan bilangan heksadesimal: ");
             scanf("%s", heksa);
 
@@ -198,14 +210,25 @@ int main() {
         }
 
         else if (menu == 9) {
-            printf("\nTerima kasih telah menggunakan toolkit ini!\n");
+            clearScreen();
+            printf("Terima kasih telah menggunakan toolkit ini!\n");
+            break;
         }
 
         else {
             printf("Pilihan tidak valid!\n");
         }
 
-    } while (menu != 9);
+        // ==== Pertanyaan apakah mau kembali ke menu utama ====
+        printf("\nApakah Anda ingin kembali ke menu utama? (y/n): ");
+        scanf(" %c", &ulang);
+
+        if (ulang != 'y' && ulang != 'Y') {
+            printf("\nTerima kasih telah menggunakan toolkit ini!\n");
+            break;
+        }
+
+    } while (1);
 
     return 0;
 }
