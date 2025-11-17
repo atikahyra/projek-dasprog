@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 #include <stdlib.h> // untuk system()
 
 // Fungsi untuk membersihkan layar (Windows & Linux)
@@ -18,16 +17,24 @@ int main() {
 
     do {
         clearScreen();
-        printf("=== TOOLKIT LENGKAP ASISTEN LABORATORIUM ELEKTRO ===\n");
-        printf("1. Kalkulator Hukum Ohm (V = I * R)\n");
-        printf("2. Kalkulator Daya Listrik (P = V * I)\n");
-        printf("3. Kalkulator Resistor Seri\n");
-        printf("4. Kalkulator Resistor Paralel\n");
-        printf("5. Desimal -> Biner / Oktal / Heksadesimal\n");
-        printf("6. Biner -> Desimal\n");
-        printf("7. Oktal -> Desimal\n");
-        printf("8. Heksadesimal -> Desimal\n");
-        printf("9. Keluar\n");
+        printf("=====================================================\n");
+        printf("|   TOOLKIT LENGKAP ASISTEN LABORATORIUM ELEKTRO    |\n");
+        printf("=====================================================\n");
+        printf("|                                                   |\n");
+        printf("|- - - - - - Verifikasi Rangkaian Elektrik - - - - -|\n");
+        printf("|1. Kalkulator Hukum Ohm                            |\n");
+        printf("|2. Kalkulator Daya Listrik                         |\n");
+        printf("|3. Kalkulator Resistor Seri                        |\n");
+        printf("|4. Kalkulator Resistor Paralel                     |\n");
+        printf("|                                                   |\n");
+        printf("|- - - - - - - Utilitas Sistem Digital - - - - - - -|\n");
+        printf("|5. Desimal -> Biner / Oktal / Heksadesimal         |\n");
+        printf("|6. Biner -> Desimal                                |\n");
+        printf("|7. Oktal -> Desimal                                |\n");
+        printf("|8. Heksadesimal -> Desimal                         |\n");
+        printf("|                                                   |\n");
+        printf("|9. Keluar                                          |\n");
+        printf("=====================================================\n");
         printf("Pilih menu (1-9): ");
         scanf("%d", &menu);
 
