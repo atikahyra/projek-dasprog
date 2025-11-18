@@ -137,22 +137,66 @@ int main() {
             printf("Masukkan bilangan desimal: ");
             scanf("%d", &desimal);
 
-            int biner[32], i = 0, n = desimal;
-            while (n > 0) {
-                biner[i] = n %2;
-                n /= 2;
-                i++;
-            }
-            printf("Biner: ");
-            for (int j = i - 1; j >= 0; j--) printf("%d", biner[j]);
+            int n;
 
-            printf("\nOktal: %o", desimal);
-            printf("\nHeksadesimal: %X\n", desimal);
+            int biner[32], b = 0;
+            n = desimal;
+            if (n == 0) {
+                biner[b++] = 0;
+            } 
+            else {
+                while (n > 0) {
+                  biner[b++] = n % 2;
+                n /= 2;
+                 }
+            }
+
+            for (int j = b - 1; j >= 0; j--)
+            printf("Biner: %d", biner[j]);
+
+
+            int oktal[32], o = 0;
+            n = desimal;
+            if (n == 0) {
+                 oktal[o++] = 0;
+            }
+            else {
+                 while (n > 0) {
+                 oktal[o++] = n % 8;
+                 n /= 8;
+                }
+            }
+
+            
+            for (int j = o - 1; j >= 0; j--)
+            printf("\nOktal: %d", oktal [j]);
+
+
+            char heksa[32];
+            int h = 0;
+            n = desimal;
+            if (n == 0) {
+                heksa[h++] = '0';
+            }
+            else {  
+                while (n > 0) {
+                 int sisa = n % 16;
+                if (sisa < 10)
+                    heksa[h++] = sisa + '0';
+                else
+                    heksa[h++] = (sisa - 10) + 'A'; 
+                 n /= 16;
+                }
+            }
+
+                for (int j = h - 1; j >= 0; j--)
+            printf("\nHeksadesimal: %c\n", heksa[j]);
         }
+
 
         else if (menu == 6) {
             long long biner;
-            int desimal = 0, i = 0, sisa;
+            int desimal = 0, i = 0, sisa, pangkat = 1;
             clearScreen();
             printf("--- Konversi Biner ke Desimal ---\n");
             printf("Masukkan bilangan biner: ");
@@ -160,7 +204,8 @@ int main() {
 
             while (biner != 0) {
                 sisa = biner % 10;
-                desimal += sisa * pow(2, i);
+                desimal += sisa * pangkat;
+                pangkat *= 2;
                 biner /= 10;
                 ++i;
             }
@@ -168,7 +213,7 @@ int main() {
         }
 
         else if (menu == 7) {
-            int oktal, desimal = 0, i = 0, sisa;
+            int oktal, desimal = 0, i = 0, sisa, pangkat = 1;
             clearScreen();
             printf("--- Konversi Oktal ke Desimal ---\n");
             printf("Masukkan bilangan oktal: ");
@@ -176,7 +221,8 @@ int main() {
 
             while (oktal != 0) {
                 sisa = oktal % 10;
-                desimal += sisa * pow(8, i);
+                desimal += sisa * pangkat;
+                pangkat *= 8;
                 oktal /= 10;
                 ++i;
             }
