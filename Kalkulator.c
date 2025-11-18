@@ -39,26 +39,30 @@ int main() {
         scanf("%d", &menu);
 
         if (menu == 1) {
-            // ===== Hukum Ohm =====
             float V, I, R;
             int pilihan;
             clearScreen();
             printf("--- Kalkulator Hukum Ohm ---\n");
-            printf("Hitung:\n1. Tegangan (V)\n2. Arus (I)\n3. Hambatan (R)\nPilih: ");
+            printf("|Hitung:                   |\n");
+            printf("|1. Tegangan (V)           |\n");
+            printf("|2. Arus (I)               |\n");
+            printf("|3. Hambatan (R)           |\n");
+            printf("----------------------------\n");
+            printf("Piih: ");
             scanf("%d", &pilihan);
 
             if (pilihan == 1) {
-                printf("Masukkan Arus (I) dalam Ampere: ");
+                printf("Masukkan nilai Arus (I) dalam Ampere: ");
                 scanf("%f", &I);
-                printf("Masukkan Hambatan (R) dalam Ohm: ");
+                printf("Masukkan nilai Hambatan (R) dalam Ohm: ");
                 scanf("%f", &R);
                 V = I * R;
                 printf("Tegangan (V) = %.2f Volt\n", V);
             } 
             else if (pilihan == 2) {
-                printf("Masukkan Tegangan (V) dalam Volt: ");
+                printf("Masukkan nilai Tegangan (V) dalam Volt: ");
                 scanf("%f", &V);
-                printf("Masukkan Hambatan (R) dalam Ohm: ");
+                printf("Masukkan nilai Hambatan (R) dalam Ohm: ");
                 scanf("%f", &R);
                 I = V / R;
                 printf("Arus (I) = %.2f Ampere\n", I);
@@ -77,22 +81,20 @@ int main() {
         }
 
         else if (menu == 2) {
-            // ===== Daya Listrik =====
             float V, I, P;
             clearScreen();
             printf("--- Kalkulator Daya Listrik ---\n");
-            printf("Masukkan Tegangan (V): ");
+            printf("Masukkan nilai Tegangan (V): ");
             scanf("%f", &V);
-            printf("Masukkan Arus (I): ");
+            printf("Masukkan nilai Arus (I): ");
             scanf("%f", &I);
             P = V * I;
             printf("Daya (P) = %.2f Watt\n", P);
         }
 
         else if (menu == 3) {
-            // ===== Resistor Seri =====
             int n;
-            float total = 0.0, R;
+            float total=0, R;
             clearScreen();
             printf("--- Kalkulator Resistor Seri ---\n");
             printf("Masukkan jumlah resistor: ");
@@ -106,9 +108,8 @@ int main() {
         }
 
         else if (menu == 4) {
-            // ===== Resistor Paralel =====
             int n;
-            float total = 0.0, R;
+            float total=0, R;
             clearScreen();
             printf("--- Kalkulator Resistor Paralel ---\n");
             printf("Masukkan jumlah resistor: ");
@@ -130,7 +131,6 @@ int main() {
         }
 
         else if (menu == 5) {
-            // ===== Konversi Desimal =====
             int desimal;
             clearScreen();
             printf("--- Konversi dari Desimal ---\n");
@@ -139,7 +139,7 @@ int main() {
 
             int biner[32], i = 0, n = desimal;
             while (n > 0) {
-                biner[i] = n % 2;
+                biner[i] = n %2;
                 n /= 2;
                 i++;
             }
@@ -151,7 +151,6 @@ int main() {
         }
 
         else if (menu == 6) {
-            // ===== Biner ke Desimal =====
             long long biner;
             int desimal = 0, i = 0, sisa;
             clearScreen();
@@ -169,7 +168,6 @@ int main() {
         }
 
         else if (menu == 7) {
-            // ===== Oktal ke Desimal =====
             int oktal, desimal = 0, i = 0, sisa;
             clearScreen();
             printf("--- Konversi Oktal ke Desimal ---\n");
@@ -186,7 +184,6 @@ int main() {
         }
 
         else if (menu == 8) {
-            // ===== Heksadesimal ke Desimal =====
             char heksa[20];
             int desimal = 0;
             clearScreen();
@@ -226,8 +223,7 @@ int main() {
             printf("Pilihan tidak valid!\n");
         }
 
-        // ==== Pertanyaan apakah mau kembali ke menu utama ====
-        printf("\nApakah Anda ingin kembali ke menu utama? (y/n): ");
+        printf("\ningin kembali ke menu utama? (y/n): ");
         scanf(" %c", &ulang);
 
         if (ulang != 'y' && ulang != 'Y') {
