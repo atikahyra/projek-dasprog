@@ -101,14 +101,14 @@ void resistorParalel() {
             continue;
         }
         total += 1.0 / R;
-    }
+    } 
 
     if (total != 0)
         printf("Total Hambatan Paralel = %.2f Ohm\n", 1.0 / total);
     else
         printf("Tidak dapat dihitung.\n");
 }
-
+ 
 void konversiDesimal() {
     int desimal, n;
 
@@ -183,9 +183,9 @@ void binerKeDesimal() {
     while (biner != 0) {
         sisa = biner % 10;
         desimal += sisa * pangkat;
-        pangkat = 2;
+        pangkat *= 2;
         biner /= 10;
-    }
+    } 
 
     printf("Hasil Desimal: %d\n", desimal);
 }
